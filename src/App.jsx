@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Eligibility from './pages/Eligibility';
+import Upcoming from './pages/Upcoming';
 import Workflow from './pages/Workflow';
 import Forms from './pages/Forms';
 import Assistant from './pages/Assistant';
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="eligibility" element={<Eligibility />} />
+          <Route path="upcoming" element={<Upcoming />} />
           <Route path="workflow" element={<Workflow />} />
           <Route path="forms" element={<Forms />} />
           <Route path="assistant" element={<Assistant />} />

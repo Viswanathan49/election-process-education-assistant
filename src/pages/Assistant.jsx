@@ -41,6 +41,13 @@ const Assistant = () => {
     }, 600); // Simulated delay
   };
 
+  // Group FAQs by category
+  const groupedFaqs = faqData.reduce((acc, faq) => {
+    if (!acc[faq.category]) acc[faq.category] = [];
+    acc[faq.category].push(faq);
+    return acc;
+  }, {});
+
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 12rem)' }}>
       <h1 style={{ marginBottom: '0.5rem', textAlign: 'center' }}>Ask the Assistant</h1>
@@ -48,26 +55,34 @@ const Assistant = () => {
         Get quick answers to common voting and registration questions.
       </p>
 
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem', justifyContent: 'center' }}>
-        {faqData.map((faq, idx) => (
-          <button 
-            key={idx}
-            onClick={() => handleSend(faq.q)}
-            style={{ 
-              padding: '0.5rem 1rem', 
-              borderRadius: '2rem', 
-              border: '1px solid var(--border-color)', 
-              backgroundColor: 'var(--card-bg)',
-              color: 'var(--primary)',
-              cursor: 'pointer',
-              fontSize: '0.9rem',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--secondary)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--card-bg)'}
-          >
-            {faq.q}
-          </button>
+      {/* Suggested Questions by Category */}
+      <div style={{ marginBottom: '1rem', overflowY: 'auto', maxHeight: '30vh', padding: '0.5rem', border: '1px solid var(--border-color)', borderRadius: '0.75rem', backgroundColor: 'var(--card-bg)' }}>
+        {Object.entries(groupedFaqs).map(([category, questions], idx) => (
+          <div key={idx} style={{ marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '0.9rem', color: 'var(--secondary-text)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{category}</h3>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              {questions.map((faq, qIdx) => (
+                <button 
+                  key={qIdx}
+                  onClick={() => handleSend(faq.q)}
+                  style={{ 
+                    padding: '0.4rem 0.75rem', 
+                    borderRadius: '1.5rem', 
+                    border: '1px solid var(--border-color)', 
+                    backgroundColor: 'var(--bg-color)',
+                    color: 'var(--primary)',
+                    cursor: 'pointer',
+                    fontSize: '0.85rem',
+                    transition: 'background-color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--secondary)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--bg-color)'}
+                >
+                  {faq.q}
+                </button>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 

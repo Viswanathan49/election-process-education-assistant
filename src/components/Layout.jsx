@@ -17,6 +17,7 @@ const Layout = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Eligibility', path: '/eligibility' },
+    { name: 'Upcoming', path: '/upcoming' },
     { name: 'Workflow', path: '/workflow' },
     { name: 'Forms', path: '/forms' },
     { name: 'Assistant', path: '/assistant' },
