@@ -2,18 +2,24 @@
 
 A complete MVP web application designed to simplify the Indian voting process for first-time voters and citizens looking to update their details. Built rapidly for the PromptWars Hackathon.
 
+## Live Deployment
+
+🚀 **[View the live application here](https://election-assistant-45536207543.asia-south1.run.app)** 
+
 ## Features
 
+- **Form Decision Helper**: Interactive scenario-based wizard recommending the exact form you need.
+- **Upcoming Elections Board**: An easy-to-read tracker for upcoming state assembly elections, labeled safely with TBD states.
 - **Eligibility Checker**: An interactive yes/no wizard determining voter eligibility based on ECI guidelines.
 - **Guided Workflows**: Step-by-step visual flows explaining registration timelines and polling day procedures.
 - **Forms & Documents**: A clean, accessible breakdown of Forms 6, 7, and 8 along with acceptable proof of identity, age, and address.
-- **Assistant**: A mock conversational interface delivering quick answers to frequently asked questions.
+- **Categorized Assistant**: A mock conversational interface delivering quick answers grouped logically (Corrections, Documents, Polling Day, etc).
 - **Responsive & Accessible**: Works flawlessly on mobile screens, utilizing a clean, civic-tech UI design.
 - **Dark Mode**: Integrated seamless dark mode toggle.
 
 ## Architecture & Tech Stack
 
-This project is a stateless frontend application to ensure maximum availability and simplicity.
+This project is a stateless frontend application to ensure maximum availability and simplicity. It is actively deployed on **Google Cloud Run**.
 - **Framework**: React / Vite
 - **Routing**: `react-router-dom`
 - **Styling**: Vanilla CSS with custom properties for theming (Look Ma, no Tailwind!)
