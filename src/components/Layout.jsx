@@ -108,7 +108,7 @@ const Layout = () => {
       </main>
 
       <footer style={{ backgroundColor: 'var(--card-bg)', borderTop: '1px solid var(--border-color)', padding: '2rem 1rem', textAlign: 'center', color: 'var(--secondary-text)' }}>
-        <p>Built for PromptWars Hackathon.</p>
+        <p>Built for PromptWars Hackathon by <a href="https://www.linkedin.com/in/viswanathan-sivakumar" target="_blank" rel="noreferrer">Viswanathan S</a>.</p>
       </footer>
       
       <style>{`

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Card = ({ children, className = '', hoverable = false }) => {
-  const style = {
+const Card = ({ children, className = '', hoverable = false, style = {} }) => {
+  const baseStyle = {
     backgroundColor: 'var(--card-bg)',
     borderRadius: '0.75rem',
     padding: '1.5rem',
@@ -9,11 +9,12 @@ const Card = ({ children, className = '', hoverable = false }) => {
     border: '1px solid var(--border-color)',
     transition: hoverable ? 'transform 0.2s, box-shadow 0.2s' : 'none',
     cursor: hoverable ? 'pointer' : 'default',
+    ...style
   };
 
   return (
     <div 
-      style={style} 
+      style={baseStyle} 
       className={`card ${hoverable ? 'hoverable' : ''} ${className}`}
       onMouseEnter={(e) => {
         if(hoverable) {
