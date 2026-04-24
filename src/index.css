@@ -7,24 +7,37 @@
   --primary-hover: #1d4ed8;
   --secondary: #f1f5f9;
   --secondary-text: #475569;
-  --card-bg: #ffffff;
-  --border-color: #e2e8f0;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(226, 232, 240, 0.5);
   --success: #059669;
   --warning: #d97706;
   --danger: #dc2626;
-  --nav-bg: rgba(255, 255, 255, 0.95);
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(12px);
 }
 
 [data-theme="dark"] {
-  --bg-color: #0f172a;
+  --bg-color: #020617;
   --text-color: #f8fafc;
   --primary: #3b82f6;
   --primary-hover: #60a5fa;
-  --secondary: #1e293b;
+  --secondary: #0f172a;
   --secondary-text: #94a3b8;
-  --card-bg: #1e293b;
-  --border-color: #334155;
-  --nav-bg: rgba(15, 23, 42, 0.95);
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(51, 65, 85, 0.5);
+  --nav-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 * {

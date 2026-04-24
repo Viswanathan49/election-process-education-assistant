@@ -69,6 +69,24 @@ const Assistant = () => {
     setTimeout(() => {
       const lowerText = text.toLowerCase();
       
+      const biasedTerms = ['vote for', 'best party', 'which candidate', 'should i support', 'political opinion', 'who will win'];
+      const isBiased = biasedTerms.some(term => lowerText.includes(term));
+
+      if (isBiased) {
+        setMessages(prev => [...prev, { 
+          type: 'bot', 
+          text: "As an educational assistant, I maintain strict non-partisan neutrality. I cannot provide political advice or candidate recommendations. Please refer to the official Election Commission of India (ECI) portal for unbiased information on candidates and manifestos.",
+          structured: {
+            meaning: "Contextual Guardrail: Non-partisan Neutrality",
+            form: "N/A",
+            docs: "N/A",
+            next: "Visit the ECI KYC (Know Your Candidate) portal for official details.",
+            link: "https://eci.gov.in/candidate-kyc/"
+          }
+        }]);
+        return;
+      }
+
       const match = quickChips.find(chip => 
         lowerText.includes(chip.q.toLowerCase().replace('?', '')) || 
         chip.q.toLowerCase().split(' ').some(word => word.length > 4 && lowerText.includes(word))
@@ -77,7 +95,7 @@ const Assistant = () => {
       if (match) {
         setMessages(prev => [...prev, { type: 'bot', structured: match }]);
       } else {
-        setMessages(prev => [...prev, { type: 'bot', text: "I'm a simple educational mock assistant. Try asking one of the suggested questions above, or visit voters.eci.gov.in for full details." }]);
+        setMessages(prev => [...prev, { type: 'bot', text: "I'm a simple educational mock assistant focused on registration and workflows. Try asking one of the suggested questions above, or visit voters.eci.gov.in for full details." }]);
       }
     }, 600); // Simulated delay
   };
@@ -98,12 +116,11 @@ const Assistant = () => {
         {quickChips.map((chip, idx) => (
           <button 
             key={idx}
+            className="glass"
             onClick={() => handleSend(chip.q)}
             style={{ 
               padding: '0.5rem 1rem', 
               borderRadius: '2rem', 
-              border: '1px solid var(--primary)', 
-              backgroundColor: 'var(--card-bg)',
               color: 'var(--primary)',
               cursor: 'pointer',
               fontSize: '0.9rem',
@@ -111,14 +128,14 @@ const Assistant = () => {
               fontWeight: 'bold'
             }}
             onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--primary)'; e.target.style.color = 'white'; }}
-            onMouseLeave={(e) => { e.target.style.backgroundColor = 'var(--card-bg)'; e.target.style.color = 'var(--primary)'; }}
+            onMouseLeave={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--primary)'; }}
           >
             {chip.q}
           </button>
         ))}
       </div>
 
-      <Card style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden', border: '1px solid var(--primary)' }}>
+      <Card className="glass" style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden', border: '1px solid var(--primary)' }}>
         <div style={{ flex: 1, overflowY: 'auto', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {messages.map((msg, idx) => (
             <div key={idx} style={{ 

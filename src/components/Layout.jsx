@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Moon, Sun, Menu, X, Landmark } from 'lucide-react';
+import { Moon, Sun, Menu, X, Landmark, Info, Newspaper, Bell } from 'lucide-react';
+import AboutModal from './AboutModal';
 
 const Layout = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const location = useLocation();
+
+  const news = [
+    { id: 1, title: 'Voter registration drive starts next week', date: '2 hours ago' },
+    { id: 2, title: 'New polling stations announced in Zone A', date: '5 hours ago' },
+    { id: 3, title: 'ECI launches new voter awareness app', date: 'Yesterday' }
+  ];
 
   useEffect(() => {
     if (darkMode) {
@@ -42,10 +50,8 @@ const Layout = () => {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <header style={{ 
-        backgroundColor: 'var(--nav-bg)', 
-        borderBottom: '1px solid var(--border-color)',
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-color)' }}>
+      <header className="glass" style={{ 
         padding: '1rem',
         position: 'sticky',
         top: 0,
@@ -78,6 +84,13 @@ const Layout = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <button 
+              onClick={() => setAboutOpen(true)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', display: 'flex' }}
+              title="About this AI"
+            >
+              <Info size={20} />
+            </button>
+            <button 
               onClick={() => setDarkMode(!darkMode)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', display: 'flex' }}
               title="Toggle Dark Mode"
@@ -99,7 +112,7 @@ const Layout = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <nav style={{ backgroundColor: 'var(--card-bg)', padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
+        <nav className="glass" style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', listStyle: 'none' }}>
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -120,9 +133,54 @@ const Layout = () => {
         </nav>
       )}
 
-      <main style={{ flex: 1, padding: '2rem 0' }} className="container animate-fade-in">
-        <Outlet />
-      </main>
+      <div className="container" style={{ flex: 1, display: 'flex', gap: '2rem', padding: '2rem 1rem' }}>
+        <main style={{ flex: 1 }} className="animate-fade-in">
+          <Outlet />
+        </main>
+
+        {/* Sidebar - Desktop Only */}
+        <aside className="desktop-sidebar glass" style={{ 
+          width: '300px', 
+          padding: '1.5rem', 
+          borderRadius: '1rem', 
+          height: 'fit-content',
+          display: 'none',
+          position: 'sticky',
+          top: '100px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', color: 'var(--primary)' }}>
+            <Newspaper size={20} />
+            <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Election News</h3>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {news.map(item => (
+              <div key={item.id} style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem', fontWeight: '500', lineHeight: '1.4', marginBottom: '0.25rem' }}>{item.title}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--secondary-text)', fontSize: '0.75rem' }}>
+                  <Bell size={12} />
+                  <span>{item.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button style={{ 
+            marginTop: '1.5rem', 
+            width: '100%', 
+            padding: '0.5rem', 
+            background: 'none', 
+            border: '1px solid var(--primary)', 
+            color: 'var(--primary)', 
+            borderRadius: '0.5rem',
+            fontSize: '0.85rem',
+            fontWeight: '600',
+            cursor: 'pointer'
+          }}>
+            View All Updates
+          </button>
+        </aside>
+      </div>
+
+      <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
 
       <footer style={{ backgroundColor: 'var(--card-bg)', borderTop: '1px solid var(--border-color)', padding: '2rem 1rem', textAlign: 'center', color: 'var(--secondary-text)' }}>
         <p>Built for PromptWars Hackathon by <a href="https://www.linkedin.com/in/viswanathan-sivakumar" target="_blank" rel="noreferrer">Viswanathan S</a>.</p>
@@ -132,6 +190,9 @@ const Layout = () => {
         @media (min-width: 768px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle { display: none !important; }
+        }
+        @media (min-width: 1024px) {
+          .desktop-sidebar { display: block !important; }
         }
         @media (max-width: 767px) {
           .desktop-nav { display: none !important; }
