@@ -29,7 +29,7 @@ The UI architecture emphasizes modern design principles, utilizing dynamic Glass
 
 | Architecture & Logic | Full Stack Implementation | Glassmorphism UI & Temporal Data |
 |:---:|:---:|:---:|
-| ![Agentic Logic Verification](./public/assets/Screenshot_130.png) | ![Full Stack Environment](./public/assets/Screenshot_131.png) | ![Updates Drawer & Timeline](./public/assets/Screenshot_133.png) |
+| ![Agentic Logic Verification](./public/assets/ui-dashboard-v2-final.png) | ![Full Stack Environment](./public/assets/Screenshot_131.png) | ![Updates Drawer & Timeline](./public/assets/Screenshot_133.png) |
 | *Self-correction logic and guardrails successfully protecting neutrality.* | *Live browser preview alongside the Antigravity code environment.* | *The Glassmorphism Updates Drawer featuring the May 4 countdown and temporal state awareness.* |
 
 ---
