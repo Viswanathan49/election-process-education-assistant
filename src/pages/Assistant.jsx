@@ -43,6 +43,14 @@ const quickChips = [
     docs: "You only need your Reference ID (generated when you submitted the form).",
     next: "Click 'Track Application Status' on the ECI portal homepage.",
     link: "https://voters.eci.gov.in/"
+  },
+  {
+    q: "When are election results?",
+    meaning: "Kerala and Tamil Nadu held their Assembly elections in April 2026. Results for both states will be announced on May 4, 2026.",
+    form: "N/A — this is a results inquiry",
+    docs: "No documents required to view results.",
+    next: "Visit the ECI Results portal on May 4, 2026 from 8:00 AM IST to track live counting.",
+    link: "https://results.eci.gov.in/"
   }
 ];
 
@@ -84,6 +92,15 @@ const Assistant = () => {
             link: "https://eci.gov.in/candidate-kyc/"
           }
         }]);
+        return;
+      }
+
+      const stateElectionTerms = ['kerala', 'tamil nadu', 'tamilnadu', 'tn election', 'result', 'results', 'may 4', 'counting'];
+      const isStateElectionQuery = stateElectionTerms.some(term => lowerText.includes(term));
+
+      if (isStateElectionQuery) {
+        const resultsChip = quickChips.find(c => c.q === 'When are election results?');
+        setMessages(prev => [...prev, { type: 'bot', structured: resultsChip }]);
         return;
       }
 
