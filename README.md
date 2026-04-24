@@ -12,7 +12,7 @@
 
 ## 📖 Overview
 
-The **Election Process Education Assistant** is a stateless, front-end web application built to demystify the Indian voting process. It acts as an interactive, educational compass that helps citizens—especially first-time voters—understand their eligibility, figure out exactly which official forms to submit, and navigate election day workflows without the friction of dense legal jargon.
+The **Election Process Education Assistant** is a stateless, front-end web application built to demystify the Indian voting process. It acts as an interactive, educational compass that helps citizens—especially first-time voters—understand their eligibility, figure out exactly which official forms to submit, learn fundamental democratic concepts, and navigate election day workflows without the friction of dense legal jargon.
 
 ---
 
@@ -24,11 +24,12 @@ Navigating voter registration in India can be overwhelmingly complex. Citizens a
 
 ## ✨ Key Features
 
-- **Eligibility Checker**: A guided, interactive wizard that determines voter eligibility and routes users to the correct next step.
-- **Form Decision Helper**: A dynamic scenario-based tool that eliminates guesswork by telling users exactly which form they need (e.g., new registration vs. address shift).
+- **Eligibility Guidance**: A guided, interactive wizard that determines voter eligibility and routes users to the correct next step.
+- **Forms Decision Helper**: A dynamic scenario-based tool that eliminates guesswork by telling users exactly which form they need (e.g., new registration vs. address shift).
 - **Workflow Timelines**: Visual, step-by-step guides breaking down complex processes like polling day preparation and registration.
-- **Guided Assistant**: A quick-action chat interface providing structured answers to frequent queries (What documents do I need? How do I check status?).
-- **Upcoming Elections Tracker**: An estimated timeline for state legislative assembly elections, heavily emphasizing the need for official ECI verification.
+- **Interactive Assistant**: A quick-action chat interface providing structured answers to frequent queries (What documents do I need? How do I check status?).
+- **Upcoming Elections**: An estimated timeline for state legislative assembly elections, heavily emphasizing the need for official ECI verification.
+- **Election Basics**: A structured educational repository defining core concepts (MLA vs MP, Lok Sabha vs Rajya Sabha, NOTA) and the role of the ECI.
 - **Curated Resources**: A verified directory of official `.gov.in` portals and helplines, categorized cleanly by purpose to prevent phishing or misinformation.
 
 ---
@@ -53,12 +54,11 @@ Navigating voter registration in India can be overwhelmingly complex. Citizens a
 
 This project was built emphasizing speed, reliability, and modern UI practices without over-engineering the backend.
 
-- **Agentic AI**: Google Antigravity
-- **Frontend Framework**: React 
-- **Build Tool**: Vite
-- **Styling**: Vanilla CSS (Custom Variables, CSS Modules)
-- **Deployment**: Google Cloud Run
-- **Version Control**: GitHub
+- **Google Antigravity**: Agentic AI assistant
+- **React**: UI architecture
+- **Vite**: Build tooling
+- **Google Cloud Run**: Production stateless deployment
+- **GitHub**: Version control and CI/CD
 
 ---
 
@@ -67,7 +67,7 @@ This project was built emphasizing speed, reliability, and modern UI practices w
 1. **Landing & Discovery**: The user arrives at a clean, professional homepage emphasizing three core values: finding the right form, getting a checklist, and understanding next steps.
 2. **Interactive Triage**: The user jumps into the *Eligibility Checker* or *Form Wizard* to input their specific scenario (e.g., "I shifted my address locally").
 3. **Actionable Results**: The application processes the input and outputs a tailored result card containing the recommended form, required documents, and a direct link to the official ECI portal.
-4. **Education & Verification**: If confused, the user accesses the *Assistant* or *Workflow* pages for deeper, structured context before heading to the official government portal to execute the task.
+4. **Education & Verification**: If confused, the user accesses the *Assistant*, *Election Basics*, or *Workflow* pages for deeper, structured context before heading to the official government portal to execute the task.
 
 ---
 
@@ -79,7 +79,7 @@ Democracy thrives on participation. By translating bureaucratic complexity into 
 
 ## 🚀 Deployment
 
-The application is fully stateless, dockerized, and currently deployed via **Google Cloud Run**. It serves traffic globally with high availability. 
+The application is fully stateless, dockerized, and currently publicly accessible via **Google Cloud Run**. It serves traffic globally with high availability. 
 
 ---
 
@@ -87,10 +87,10 @@ The application is fully stateless, dockerized, and currently deployed via **Goo
 
 While this MVP is fully functional, the roadmap for scaling this civic-tech tool includes:
 - **Multilingual Support**: Integrating local languages (Hindi, Tamil, Marathi, etc.) to reach rural and non-English speaking demographics.
-- **Richer Election Education Content**: Expanding modules to include candidate KYC research and local body elections.
 - **Better Personalization**: Allowing users to save their checklist state locally without requiring an account.
-- **Stronger Assistant Guidance**: Hooking the mock assistant into a live RAG pipeline powered by the latest ECI documentation.
-- **Official Data Integrations**: Pulling live election dates and polling booth data securely via official APIs (if made public).
+- **Richer Assistant Guidance**: Hooking the mock assistant into a live RAG pipeline powered by the latest ECI documentation.
+- **Stronger Official Data Integrations**: Pulling live election dates and polling booth data securely via official APIs.
+- **Expanded Education Content**: Adding candidate KYC research workflows and local body election logic.
 
 ---
 
