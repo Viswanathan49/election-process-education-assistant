@@ -6,33 +6,42 @@ const RESULT_DAY = new Date('2026-05-04T06:00:00+05:30');
 const timeline = [
   {
     id: 1,
-    date: 'Apr 7',
+    date: 'Apr 9',
     title: 'Kerala Assembly Polls',
     status: 'concluded',
-    pulse: true,
-    detail: 'Polling concluded successfully across all 140 constituencies. Voter turnout recorded.',
+    pulse: false,
+    detail: 'Polling concluded successfully. Voter turnout recorded.',
     badge: 'Polls Concluded'
   },
   {
     id: 2,
     date: 'Apr 23',
-    title: 'Tamil Nadu Assembly Polls',
+    title: 'TN & WB Phase I Polls',
     status: 'concluded',
-    pulse: true,
-    detail: 'Polling concluded across all 234 constituencies. High voter participation reported.',
+    pulse: false,
+    detail: 'Polling concluded across Tamil Nadu and Phase I of West Bengal.',
     badge: 'Polls Concluded'
   },
   {
     id: 3,
-    date: 'May 4',
-    title: 'Result Day — Kerala & Tamil Nadu',
+    date: 'Apr 29',
+    title: 'WB Phase II Prep',
     status: 'upcoming',
+    pulse: true,
+    detail: 'Final preparations underway for Phase II of West Bengal Assembly Polls.',
+    badge: 'LIVE'
+  },
+  {
+    id: 4,
+    date: 'May 4',
+    title: 'Result Day',
+    status: 'expected',
     pulse: false,
     detail: 'Vote counting begins at 8:00 AM IST. Results expected throughout the day.',
     badge: 'Upcoming'
   },
   {
-    id: 4,
+    id: 5,
     date: 'May 2026',
     title: 'Bihar Assembly Elections',
     status: 'expected',
@@ -41,21 +50,12 @@ const timeline = [
     badge: 'Expected'
   },
   {
-    id: 5,
+    id: 6,
     date: 'Q3 2026',
     title: 'Assam & Tripura Elections',
     status: 'tbd',
     pulse: false,
     detail: 'Estimated window based on current term expiry. Subject to official confirmation.',
-    badge: 'TBD'
-  },
-  {
-    id: 6,
-    date: 'Q4 2026',
-    title: 'Goa Municipal Elections',
-    status: 'tbd',
-    pulse: false,
-    detail: 'To be confirmed by the State Election Commission of Goa.',
     badge: 'TBD'
   }
 ];

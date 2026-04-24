@@ -11,6 +11,8 @@ const getStatusBadge = (status) => {
       return { bg: 'var(--success)', color: 'white', text: 'Announced' };
     case 'expected':
       return { bg: 'var(--primary)', color: 'white', text: 'Expected' };
+    case 'concluded':
+      return { bg: '#059669', color: 'white', text: 'Concluded' };
     default:
       return { bg: 'var(--secondary)', color: 'var(--secondary-text)', text: 'To be confirmed' };
   }
@@ -64,6 +66,22 @@ const Upcoming = () => {
           </Button>
         </div>
       </div>
+
+      {/* Global Countdown Banner */}
+      <Card style={{ marginBottom: '3rem', border: '1px solid #2563eb', backgroundColor: 'rgba(37, 99, 235, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ color: '#2563eb', margin: '0 0 0.5rem 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <CalendarDays size={24} />
+            Countdown to Results
+          </h2>
+          <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-color)' }}>
+            Result Day: May 4, 2026
+          </p>
+          <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: 'var(--secondary-text)' }}>
+            10 Days to go
+          </p>
+        </div>
+      </Card>
 
       {/* Election Cards Grid */}
       <h2 style={{ marginBottom: '1.5rem', paddingBottom: '0.5rem', borderBottom: '2px solid var(--border-color)', color: 'var(--text-color)', fontSize: '1.3rem' }}>

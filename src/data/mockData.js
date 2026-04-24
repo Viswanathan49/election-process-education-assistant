@@ -106,10 +106,13 @@ export const faqData = [
 ];
 
 export const upcomingElections = [
+  { state: "West Bengal Phase II", type: "Legislative Assembly", expected: "April 29, 2026", status: "expected" },
+  { state: "West Bengal Phase I", type: "Legislative Assembly", expected: "April 23, 2026", status: "concluded" },
+  { state: "Gujarat By-Elections", type: "Legislative Assembly", expected: "April 2026", status: "concluded" },
+  { state: "Maharashtra By-Elections", type: "Legislative Assembly", expected: "April 2026", status: "concluded" },
+  { state: "Kerala", type: "Legislative Assembly", expected: "April 9, 2026", status: "concluded" },
+  { state: "Tamil Nadu", type: "Legislative Assembly", expected: "April 23, 2026", status: "concluded" },
   { state: "Assam", type: "Legislative Assembly", expected: "April-May 2026", status: "TBD" },
-  { state: "Kerala", type: "Legislative Assembly", expected: "April-May 2026", status: "TBD" },
-  { state: "Tamil Nadu", type: "Legislative Assembly", expected: "April-May 2026", status: "TBD" },
-  { state: "West Bengal", type: "Legislative Assembly", expected: "April-May 2026", status: "TBD" },
   { state: "Puducherry", type: "Legislative Assembly", expected: "April-May 2026", status: "TBD" },
 ];
 
