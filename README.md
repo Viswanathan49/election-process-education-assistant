@@ -36,16 +36,16 @@ Navigating voter registration in India can be overwhelmingly complex. Citizens a
 
 ## 📸 Preview
 
-*Note: Replace these placeholders with actual screenshots from the live deployment.*
+
 
 | Home Page | Interactive Form Wizard |
 |:---:|:---:|
-| ![Home Page Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Outcome-Driven+Landing+Page) | ![Forms Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Dynamic+Form+Decision+Wizard) |
+| ![Home Page](img/home-page.png) | ![Forms Wizard](img/forms-helper.png) |
 | *Outcome-driven landing page focusing on user journeys.* | *Guided logic to select between Form 6, 7, and 8.* |
 
 | Guided Workflows | Educational Assistant |
 |:---:|:---:|
-| ![Workflow Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Step-By-Step+Visual+Workflows) | ![Assistant Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Structured+Q%26A+Assistant) |
+| ![Guided Workflows](img/workflow-page.png) | ![Educational Assistant](img/assistant-page.png) |
 | *Clear actions and common mistakes to avoid.* | *Quick, non-legalistic answers to common queries.* |
 
 ---
