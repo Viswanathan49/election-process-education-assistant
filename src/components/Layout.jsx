@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Moon, Sun, Menu, X, Landmark } from 'lucide-react';
 
 const Layout = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     if (darkMode) {
@@ -13,6 +14,21 @@ const Layout = () => {
       document.documentElement.removeAttribute('data-theme');
     }
   }, [darkMode]);
+
+  useEffect(() => {
+    const titles = {
+      '/': 'Election Assistant | Home',
+      '/eligibility': 'Election Assistant | Eligibility',
+      '/upcoming': 'Election Assistant | Upcoming Elections',
+      '/workflow': 'Election Assistant | Workflow',
+      '/forms': 'Election Assistant | Forms',
+      '/assistant': 'Election Assistant | Assistant',
+      '/basics': 'Election Assistant | Election Basics',
+      '/resources': 'Election Assistant | Resources'
+    };
+    
+    document.title = titles[location.pathname] || 'Election Assistant';
+  }, [location]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
