@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
-import { Send, Bot, User, AlertCircle, ExternalLink } from 'lucide-react';
+import { Send, Bot, User, AlertCircle, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const quickChips = [
   {
@@ -56,7 +56,7 @@ const quickChips = [
 
 const Assistant = () => {
   const [messages, setMessages] = useState([
-    { type: 'bot', text: 'Namaste! I am your Educational Assistant. Select a quick topic below or type your question.' }
+    { type: 'bot', text: 'Welcome. TN and Kerala polling is complete. Counting starts May 4. How can I help you with post-poll data?' }
   ]);
   const [input, setInput] = useState('');
   const chatEndRef = useRef(null);
@@ -210,6 +210,10 @@ const Assistant = () => {
                     <a href={msg.structured.link} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>
                       Verify on Official Portal <ExternalLink size={16} />
                     </a>
+                    <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', color: 'var(--secondary-text)' }}>
+                      <ShieldCheck size={13} color="#059669" />
+                      <span><strong style={{ color: '#059669' }}>Verified by Election Commission Data</strong> · Educational use only</span>
+                    </div>
                   </div>
                 )}
               </div>
