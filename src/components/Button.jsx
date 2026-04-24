@@ -35,6 +35,20 @@ const Button = ({ children, variant = 'primary', onClick, className = '', ...pro
       style={{ ...baseStyle, ...variants[variant] }}
       className={`btn ${className}`}
       onClick={onClick}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-1px)';
+        e.currentTarget.style.filter = 'brightness(1.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.filter = 'brightness(1)';
+      }}
+      onMouseDown={(e) => {
+        e.currentTarget.style.transform = 'translateY(1px)';
+      }}
+      onMouseUp={(e) => {
+        e.currentTarget.style.transform = 'translateY(-1px)';
+      }}
       {...props}
     >
       {children}
