@@ -1,81 +1,99 @@
-# Election Process Education Assistant
-
-A complete MVP web application designed to simplify the Indian voting process for first-time voters and citizens looking to update their details. Built rapidly for the PromptWars Hackathon.
-
-## Live Deployment
-
-🚀 **[View the live application here](https://election-assistant-45536207543.asia-south1.run.app)** 
-
-## Features
-
-- **Form Decision Helper**: Interactive scenario-based wizard recommending the exact form you need.
-- **Upcoming Elections Board**: An easy-to-read tracker for upcoming state assembly elections, labeled safely with TBD states.
-- **Eligibility Checker**: An interactive yes/no wizard determining voter eligibility based on ECI guidelines.
-- **Guided Workflows**: Step-by-step visual flows explaining registration timelines and polling day procedures.
-- **Forms & Documents**: A clean, accessible breakdown of Forms 6, 7, and 8 along with acceptable proof of identity, age, and address.
-- **Categorized Assistant**: A mock conversational interface delivering quick answers grouped logically (Corrections, Documents, Polling Day, etc).
-- **Responsive & Accessible**: Works flawlessly on mobile screens, utilizing a clean, civic-tech UI design.
-- **Dark Mode**: Integrated seamless dark mode toggle.
-
-## Architecture & Tech Stack
-
-This project is a stateless frontend application to ensure maximum availability and simplicity. It is actively deployed on **Google Cloud Run**.
-- **Framework**: React / Vite
-- **Routing**: `react-router-dom`
-- **Styling**: Vanilla CSS with custom properties for theming (Look Ma, no Tailwind!)
-- **Icons**: `lucide-react`
-- **Data**: Centralized mock state located in `src/data/mockData.js`. No backend or database is necessary for this MVP.
-
-## Project Structure
-
-```
-prompt-wars/
-├── public/
-├── src/
-│   ├── components/      # Reusable UI (Button, Card, Layout)
-│   ├── data/            # mockData.js (Central store for forms/workflows)
-│   ├── pages/           # Assistant, Eligibility, Forms, Home, Resources, Workflow
-│   ├── App.jsx          # React Router setup
-│   ├── index.css        # Global styles & Dark Mode variables
-│   └── main.jsx         # Entry point
-├── index.html
-├── package.json
-└── vite.config.js
-```
-
-## How to Run Locally
-
-You'll need Node.js installed.
-
-1. Clone or navigate to the repository directory (`prompt-wars`):
-   ```bash
-   cd prompt-wars
-   ```
-2. Install the dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-4. Open the displayed local URL (typically `http://localhost:5173`) in your browser.
-
-## How to Deploy
-
-Since this is a static Vite application without a backend, it can be deployed for free in minutes on Netlify, Vercel, or GitHub Pages.
-
-### Vercel / Netlify Deployment
-1. Push your code to a GitHub repository.
-2. Log into Vercel/Netlify, choose "Add New Project", and link your GitHub repo.
-3. The platform will auto-detect Vite. Ensure the build command is `npm run build` and the output directory is `dist`.
-4. Deploy! Your app will be live globally.
-
-### GitHub Pages Deployment
-1. Install `gh-pages`: `npm install gh-pages --save-dev`
-2. Update `package.json` with `"homepage": "https://<yourusername>.github.io/<repo-name>"`
-3. Add a script in `package.json`: `"deploy": "gh-pages -d dist"`
-4. Run `npm run build && npm run deploy`.
+# 🗳️ Election Process Education Assistant
+> **A modern, civic-tech guide simplifying the Indian electoral process for first-time voters and citizens.**
 
 ---
-*Disclaimer: This is a hackathon project built for educational purposes. Always rely on official sources like `voters.eci.gov.in` for actual voter services.*
+
+## 🔗 Links
+
+- **🚀 Live Demo**: [View the Deployed Application](https://election-assistant-45536207543.asia-south1.run.app)
+- **💻 GitHub Repository**: [github.com/Viswanathan49/election-process-education-assistant](https://github.com/Viswanathan49/election-process-education-assistant) *(Auto-mirrored from prompt-wars)*
+
+---
+
+## 📖 Overview
+
+The **Election Process Education Assistant** is a stateless, front-end web application built to demystify the Indian voting process. It acts as an interactive, educational compass that helps citizens—especially first-time voters—understand their eligibility, figure out exactly which official forms to submit, and navigate election day workflows without the friction of dense legal jargon.
+
+---
+
+## 🎯 Problem Statement
+
+Navigating voter registration in India can be overwhelmingly complex. Citizens are frequently confused by overlapping forms (Forms 6, 7, 8), uncertain about acceptable document proofs, and unsure of the exact workflows required to participate. This confusion leads to duplicate applications, rejected forms, and ultimately, lower voter turnout. Information exists, but it is rarely presented in an actionable, user-centric, and digestible format.
+
+---
+
+## ✨ Key Features
+
+- **Eligibility Checker**: A guided, interactive wizard that determines voter eligibility and routes users to the correct next step.
+- **Form Decision Helper**: A dynamic scenario-based tool that eliminates guesswork by telling users exactly which form they need (e.g., new registration vs. address shift).
+- **Workflow Timelines**: Visual, step-by-step guides breaking down complex processes like polling day preparation and registration.
+- **Guided Assistant**: A quick-action chat interface providing structured answers to frequent queries (What documents do I need? How do I check status?).
+- **Upcoming Elections Tracker**: An estimated timeline for state legislative assembly elections, heavily emphasizing the need for official ECI verification.
+- **Curated Resources**: A verified directory of official `.gov.in` portals and helplines, categorized cleanly by purpose to prevent phishing or misinformation.
+
+---
+
+## 📸 Preview
+
+*Note: Replace these placeholders with actual screenshots from the live deployment.*
+
+| Home Page | Interactive Form Wizard |
+|:---:|:---:|
+| ![Home Page Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Outcome-Driven+Landing+Page) | ![Forms Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Dynamic+Form+Decision+Wizard) |
+| *Outcome-driven landing page focusing on user journeys.* | *Guided logic to select between Form 6, 7, and 8.* |
+
+| Guided Workflows | Educational Assistant |
+|:---:|:---:|
+| ![Workflow Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Step-By-Step+Visual+Workflows) | ![Assistant Placeholder](https://via.placeholder.com/600x350/f8fafc/2563eb?text=Structured+Q%26A+Assistant) |
+| *Clear actions and common mistakes to avoid.* | *Quick, non-legalistic answers to common queries.* |
+
+---
+
+## 🛠️ Tech Stack
+
+This project was built emphasizing speed, reliability, and modern UI practices without over-engineering the backend.
+
+- **Agentic AI**: Google Antigravity
+- **Frontend Framework**: React 
+- **Build Tool**: Vite
+- **Styling**: Vanilla CSS (Custom Variables, CSS Modules)
+- **Deployment**: Google Cloud Run
+- **Version Control**: GitHub
+
+---
+
+## 🗺️ How it Works (User Journey)
+
+1. **Landing & Discovery**: The user arrives at a clean, professional homepage emphasizing three core values: finding the right form, getting a checklist, and understanding next steps.
+2. **Interactive Triage**: The user jumps into the *Eligibility Checker* or *Form Wizard* to input their specific scenario (e.g., "I shifted my address locally").
+3. **Actionable Results**: The application processes the input and outputs a tailored result card containing the recommended form, required documents, and a direct link to the official ECI portal.
+4. **Education & Verification**: If confused, the user accesses the *Assistant* or *Workflow* pages for deeper, structured context before heading to the official government portal to execute the task.
+
+---
+
+## 💡 Why This Project Matters
+
+Democracy thrives on participation. By translating bureaucratic complexity into accessible, scenario-based digital workflows, this project lowers the barrier to entry for millions of potential voters. It represents the core of **civic-tech**: building tools that empower citizens to exercise their fundamental rights with confidence.
+
+---
+
+## 🚀 Deployment
+
+The application is fully stateless, dockerized, and currently deployed via **Google Cloud Run**. It serves traffic globally with high availability. 
+
+---
+
+## 🔮 Future Improvements
+
+While this MVP is fully functional, the roadmap for scaling this civic-tech tool includes:
+- **Multilingual Support**: Integrating local languages (Hindi, Tamil, Marathi, etc.) to reach rural and non-English speaking demographics.
+- **Richer Election Education Content**: Expanding modules to include candidate KYC research and local body elections.
+- **Better Personalization**: Allowing users to save their checklist state locally without requiring an account.
+- **Stronger Assistant Guidance**: Hooking the mock assistant into a live RAG pipeline powered by the latest ECI documentation.
+- **Official Data Integrations**: Pulling live election dates and polling booth data securely via official APIs (if made public).
+
+---
+
+## 🏆 Built For
+
+Created rapidly for **PromptWars Virtual** using **Google Antigravity**.
