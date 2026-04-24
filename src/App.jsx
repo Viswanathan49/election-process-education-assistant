@@ -8,6 +8,7 @@ import Workflow from './pages/Workflow';
 import Forms from './pages/Forms';
 import Assistant from './pages/Assistant';
 import Resources from './pages/Resources';
+import ElectionBasics from './pages/ElectionBasics';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="workflow" element={<Workflow />} />
           <Route path="forms" element={<Forms />} />
           <Route path="assistant" element={<Assistant />} />
+          <Route path="basics" element={<ElectionBasics />} />
           <Route path="resources" element={<Resources />} />
         </Route>
       </Routes>

@@ -21,6 +21,7 @@ const Layout = () => {
     { name: 'Workflow', path: '/workflow' },
     { name: 'Forms', path: '/forms' },
     { name: 'Assistant', path: '/assistant' },
+    { name: 'Basics', path: '/basics' },
     { name: 'Resources', path: '/resources' },
   ];
 
