@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Moon, Sun, Menu, X, Landmark, Info, Newspaper, Bell } from 'lucide-react';
 import AboutModal from './AboutModal';
+import ElectionTimelineDrawer from './ElectionTimelineDrawer';
+import NewsTicker from './NewsTicker';
 
 const Layout = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
 
   const news = [
@@ -110,6 +113,8 @@ const Layout = () => {
         </div>
       </header>
 
+      <NewsTicker />
+
       {/* Mobile Nav */}
       {menuOpen && (
         <nav className="glass" style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
@@ -163,24 +168,31 @@ const Layout = () => {
               </div>
             ))}
           </div>
-          <button style={{ 
-            marginTop: '1.5rem', 
-            width: '100%', 
-            padding: '0.5rem', 
-            background: 'none', 
-            border: '1px solid var(--primary)', 
-            color: 'var(--primary)', 
-            borderRadius: '0.5rem',
-            fontSize: '0.85rem',
-            fontWeight: '600',
-            cursor: 'pointer'
-          }}>
-            View All Updates
+          <button
+            onClick={() => setDrawerOpen(true)}
+            style={{ 
+              marginTop: '1.5rem', 
+              width: '100%', 
+              padding: '0.5rem', 
+              background: 'none', 
+              border: '1px solid var(--primary)', 
+              color: 'var(--primary)', 
+              borderRadius: '0.5rem',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={e => { e.target.style.backgroundColor = 'var(--primary)'; e.target.style.color = 'white'; }}
+            onMouseLeave={e => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--primary)'; }}
+          >
+            View All Updates →
           </button>
         </aside>
       </div>
 
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
+      <ElectionTimelineDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
       <footer style={{ backgroundColor: 'var(--card-bg)', borderTop: '1px solid var(--border-color)', padding: '2rem 1rem', textAlign: 'center', color: 'var(--secondary-text)' }}>
         <p>Built for PromptWars Hackathon by <a href="https://www.linkedin.com/in/viswanathan-sivakumar" target="_blank" rel="noreferrer">Viswanathan S</a>.</p>
