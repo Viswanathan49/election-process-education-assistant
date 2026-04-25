@@ -64,6 +64,8 @@ const Workflow = () => {
           <button
             key={key}
             onClick={() => setActiveWorkflow(key)}
+            aria-label={`Switch to ${data.label} workflow`}
+            aria-pressed={activeWorkflow === key}
             style={{
               padding: '0.75rem 1.25rem',
               borderRadius: '2rem',

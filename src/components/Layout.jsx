@@ -90,15 +90,17 @@ const Layout = () => {
               onClick={() => setAboutOpen(true)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', display: 'flex' }}
               title="About this AI"
+              aria-label="About this AI — open strategy modal"
             >
-              <Info size={20} />
+              <Info size={20} aria-hidden="true" />
             </button>
             <button 
               onClick={() => setDarkMode(!darkMode)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', display: 'flex' }}
               title="Toggle Dark Mode"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -106,8 +108,11 @@ const Layout = () => {
               className="mobile-toggle"
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', display: 'none' }}
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
             >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -170,6 +175,7 @@ const Layout = () => {
           </div>
           <button
             onClick={() => setDrawerOpen(true)}
+            aria-label="View all election updates — open timeline drawer"
             style={{ 
               marginTop: '1.5rem', 
               width: '100%', 

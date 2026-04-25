@@ -5,7 +5,11 @@ const AboutModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div style={{
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="about-modal-title"
+      style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -30,14 +34,15 @@ const AboutModal = ({ isOpen, onClose }) => {
       }}>
         <button 
           onClick={onClose}
+          aria-label="Close About this AI modal"
           style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--secondary-text)' }}
         >
-          <X size={24} />
+          <X size={24} aria-hidden="true" />
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-          <Sparkles color="var(--primary)" size={28} />
-          <h2 style={{ margin: 0 }}>About this AI Strategy</h2>
+          <Sparkles color="var(--primary)" size={28} aria-hidden="true" />
+          <h2 id="about-modal-title" style={{ margin: 0 }}>About this AI Strategy</h2>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -74,6 +79,7 @@ const AboutModal = ({ isOpen, onClose }) => {
 
         <button 
           onClick={onClose}
+          aria-label="Close About this AI modal"
           style={{
             marginTop: '2rem',
             width: '100%',

@@ -211,13 +211,13 @@ const ElectionTimelineDrawer = ({ isOpen, onClose }) => {
               </p>
             </div>
           </div>
-          <button onClick={onClose} style={{
+          <button onClick={onClose} aria-label="Close election timeline drawer" style={{
             background: 'rgba(0,0,0,0.06)', border: 'none', cursor: 'pointer',
             color: 'var(--secondary-text)', padding: '0.4rem', borderRadius: '50%',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: 'background 0.2s'
           }}>
-            <X size={20} />
+            <X size={20} aria-hidden="true" />
           </button>
         </div>
 

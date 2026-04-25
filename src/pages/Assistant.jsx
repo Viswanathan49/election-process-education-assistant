@@ -135,6 +135,7 @@ const Assistant = () => {
             key={idx}
             className="glass"
             onClick={() => handleSend(chip.q)}
+            aria-label={`Ask: ${chip.q}`}
             style={{ 
               padding: '0.5rem 1rem', 
               borderRadius: '2rem', 
@@ -224,19 +225,21 @@ const Assistant = () => {
         
         <div style={{ borderTop: '1px solid var(--border-color)', padding: '1rem', display: 'flex', gap: '0.5rem', backgroundColor: 'var(--bg-color)' }}>
           <input 
+            id="assistant-chat-input"
             type="text" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Type your question..."
+            aria-label="Type your election question here"
             style={{ 
               flex: 1, padding: '0.75rem 1rem', borderRadius: '0.5rem', 
               border: '1px solid var(--border-color)', outline: 'none',
               backgroundColor: 'var(--card-bg)', color: 'var(--text-color)'
             }}
           />
-          <Button onClick={() => handleSend()}>
-            <Send size={18} />
+          <Button onClick={() => handleSend()} aria-label="Send message">
+            <Send size={18} aria-hidden="true" />
           </Button>
         </div>
       </Card>
