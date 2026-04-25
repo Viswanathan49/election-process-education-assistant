@@ -4,7 +4,7 @@
  * Tests the pure utility functions in src/utils/countdownUtils.js.
  */
 
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import { computeCountdown, getPollStatus, RESULT_DAY } from '../src/utils/countdownUtils.js';
 
 // ─── RESULT_DAY constant ────────────────────────────────────────────────────

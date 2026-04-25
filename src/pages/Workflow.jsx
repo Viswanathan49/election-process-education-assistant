@@ -45,6 +45,13 @@ const workflows = {
   }
 };
 
+/**
+ * Displays a set of guided workflows for common electoral processes (Registration, Correction, etc.).
+ * Allows users to navigate through the required steps and common mistakes for each process.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered Workflow component.
+ */
 const Workflow = () => {
   const [activeWorkflow, setActiveWorkflow] = useState('registration');
   const navigate = useNavigate();

@@ -54,6 +54,13 @@ const quickChips = [
   }
 ];
 
+/**
+ * An interactive educational chat assistant providing information on election processes.
+ * Simulates AI responses based on quick chips and specific keywords while maintaining a neutral, non-partisan guardrail.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered Assistant component.
+ */
 const Assistant = () => {
   const [messages, setMessages] = useState([
     { type: 'bot', text: 'Welcome. TN and Kerala polling is complete. Counting starts May 4. How can I help you with post-poll data?' }
@@ -65,6 +72,12 @@ const Assistant = () => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  /**
+   * Processes the user's message, updates the chat history, and simulates a delayed response from the bot.
+   * Includes guardrails to reject biased political queries and specific rules for handling state election results.
+   * 
+   * @param {string} [text=input] - The message text to send. Defaults to the current input state if not provided.
+   */
   const handleSend = (text = input) => {
     if (!text.trim()) return;
 
