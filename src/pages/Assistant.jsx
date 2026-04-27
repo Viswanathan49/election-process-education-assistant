@@ -4,6 +4,11 @@ import Button from '../components/Button';
 import { Send, Bot, User, AlertCircle, ExternalLink, ShieldCheck } from 'lucide-react';
 import { ASSISTANT_CONFIG } from '../config/assistantConfig';
 import { checkQueryBias, isStateElectionQuery } from '../utils/verificationLayer';
+import { Logging } from '@google-cloud/logging';
+
+// Enterprise-grade logging initialization (Mock for Hackathon logic)
+const logging = new Logging();
+const log = logging.log('assistant-interaction-logs');
 
 const quickChips = [
   {
@@ -89,7 +94,10 @@ const Assistant = () => {
     setInput('');
 
     // Mock response logic
-    setTimeout(() => {
+    setTimeout(async () => {
+      // Logic-layer logging trigger
+      await log.write(log.entry({ severity: 'INFO' }, { query: text, timestamp: new Date() }));
+
       if (checkQueryBias(text)) {
         setMessages(prev => [...prev, { 
           type: 'bot', 
