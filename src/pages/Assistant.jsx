@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import { Send, Bot, User, AlertCircle, ExternalLink, ShieldCheck } from 'lucide-react';
+import { ASSISTANT_CONFIG } from '../config/assistantConfig';
+import { checkQueryBias, isStateElectionQuery } from '../utils/verificationLayer';
 
 const quickChips = [
   {
@@ -63,7 +65,7 @@ const quickChips = [
  */
 const Assistant = () => {
   const [messages, setMessages] = useState([
-    { type: 'bot', text: 'Welcome. TN and Kerala polling is complete. Counting starts May 4. How can I help you with post-poll data?' }
+    { type: 'bot', text: ASSISTANT_CONFIG.welcomeMessage }
   ]);
   const [input, setInput] = useState('');
   const chatEndRef = useRef(null);
@@ -88,35 +90,21 @@ const Assistant = () => {
 
     // Mock response logic
     setTimeout(() => {
-      const lowerText = text.toLowerCase();
-      
-      const biasedTerms = ['vote for', 'best party', 'which candidate', 'should i support', 'political opinion', 'who will win'];
-      const isBiased = biasedTerms.some(term => lowerText.includes(term));
-
-      if (isBiased) {
+      if (checkQueryBias(text)) {
         setMessages(prev => [...prev, { 
           type: 'bot', 
-          text: "As an educational assistant, I maintain strict non-partisan neutrality. I cannot provide political advice or candidate recommendations. Please refer to the official Election Commission of India (ECI) portal for unbiased information on candidates and manifestos.",
-          structured: {
-            meaning: "Contextual Guardrail: Non-partisan Neutrality",
-            form: "N/A",
-            docs: "N/A",
-            next: "Visit the ECI KYC (Know Your Candidate) portal for official details.",
-            link: "https://eci.gov.in/candidate-kyc/"
-          }
+          ...ASSISTANT_CONFIG.neutralityResponse
         }]);
         return;
       }
 
-      const stateElectionTerms = ['kerala', 'tamil nadu', 'tamilnadu', 'tn election', 'result', 'results', 'may 4', 'counting'];
-      const isStateElectionQuery = stateElectionTerms.some(term => lowerText.includes(term));
-
-      if (isStateElectionQuery) {
+      if (isStateElectionQuery(text)) {
         const resultsChip = quickChips.find(c => c.q === 'When are election results?');
         setMessages(prev => [...prev, { type: 'bot', structured: resultsChip }]);
         return;
       }
 
+      const lowerText = text.toLowerCase();
       const match = quickChips.find(chip => 
         lowerText.includes(chip.q.toLowerCase().replace('?', '')) || 
         chip.q.toLowerCase().split(' ').some(word => word.length > 4 && lowerText.includes(word))
