@@ -4,12 +4,15 @@ import { Moon, Sun, Menu, X, Landmark, Info, Newspaper, Bell } from 'lucide-reac
 import AboutModal from './AboutModal';
 import ElectionTimelineDrawer from './ElectionTimelineDrawer';
 import NewsTicker from './NewsTicker';
+import { useLanguage } from '../context/LanguageContext';
+import { Languages } from 'lucide-react';
 
 const Layout = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { lang, toggleLanguage, t } = useLanguage();
   const location = useLocation();
 
   const news = [
@@ -42,14 +45,14 @@ const Layout = () => {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Eligibility', path: '/eligibility' },
-    { name: 'Upcoming', path: '/upcoming' },
-    { name: 'Workflow', path: '/workflow' },
-    { name: 'Forms', path: '/forms' },
-    { name: 'Assistant', path: '/assistant' },
-    { name: 'Basics', path: '/basics' },
-    { name: 'Resources', path: '/resources' },
+    { name: t.home, path: '/' },
+    { name: t.eligibility, path: '/eligibility' },
+    { name: t.upcoming, path: '/upcoming' },
+    { name: t.workflows, path: '/workflow' },
+    { name: t.forms, path: '/forms' },
+    { name: t.assistant, path: '/assistant' },
+    { name: t.basics, path: '/basics' },
+    { name: t.resources, path: '/resources' },
   ];
 
   return (
@@ -101,6 +104,28 @@ const Layout = () => {
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
+            </button>
+
+            <button 
+              onClick={toggleLanguage}
+              style={{ 
+                background: 'var(--primary)', 
+                color: 'white', 
+                border: 'none', 
+                cursor: 'pointer', 
+                padding: '0.4rem 0.8rem', 
+                borderRadius: '0.5rem',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+              title={t.toggleLang}
+              aria-label={t.toggleLang}
+            >
+              <Languages size={16} aria-hidden="true" />
+              {lang.toUpperCase()}
             </button>
 
             {/* Mobile Menu Toggle */}

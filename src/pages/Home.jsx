@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { ArrowRight, ShieldCheck, BookOpen, AlertCircle, FileText, CheckSquare, Compass } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import VoterRoadmap from '../components/VoterRoadmap';
 
 const Home = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '2rem' }}>
@@ -13,16 +16,21 @@ const Home = () => {
       {/* Hero Section */}
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '1.25rem', lineHeight: '1.1' }}>
-          Your Guide to Voting in India.
+          {t.guideTitle}.
         </h1>
         <p style={{ fontSize: '1.25rem', color: 'var(--secondary-text)', marginBottom: '2.5rem', maxWidth: '700px', margin: '0 auto 2.5rem auto' }}>
           We help first-time voters navigate the electoral process. Understand your eligibility, figure out exactly which forms to submit, and prepare your documents with confidence.
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-          <Button onClick={() => navigate('/eligibility')} style={{ padding: '1.25rem 2.5rem', fontSize: '1.2rem', borderRadius: '2rem' }}>
-            Start guided check <ArrowRight size={20} />
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem', gap: '1rem' }}>
+          <Button onClick={() => navigate('/eligibility')} style={{ padding: '1.25rem 2.5rem', fontSize: '1.2rem', borderRadius: '2rem' }} aria-label={t.getStarted}>
+            {t.getStarted} <ArrowRight size={20} />
           </Button>
+        </div>
+
+        {/* Voter Roadmap Section */}
+        <div style={{ marginBottom: '3rem' }}>
+          <VoterRoadmap />
         </div>
 
         {/* Trust Strip */}
